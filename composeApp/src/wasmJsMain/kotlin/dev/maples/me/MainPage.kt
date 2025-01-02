@@ -2,7 +2,6 @@ package dev.maples.me
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -76,44 +75,48 @@ fun LinksRow(size: Dp = 32.dp) {
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Icon(
-            imageVector = FontAwesomeIcons.Brands.Linkedin,
-            contentDescription = "LinkedIn",
-            tint = Color.White,
-            modifier =
-                Modifier
-                    .size(size)
-                    .clickable {
-                        uriHandler.openUri("https://www.linkedin.com/in/joseph-maples-253250170/")
-                    },
-        )
+        IconButton(
+            onClick = {
+                uriHandler.openUri("https://www.linkedin.com/in/joseph-maples-253250170/")
+            },
+        ) {
+            Icon(
+                imageVector = FontAwesomeIcons.Brands.Linkedin,
+                contentDescription = "LinkedIn",
+                tint = Color.White,
+                modifier = Modifier.size(size),
+            )
+        }
 
         Spacer(modifier = Modifier.width(size))
 
-        Icon(
-            imageVector = FontAwesomeIcons.Brands.Github,
-            contentDescription = "Github",
-            tint = Color.White,
-            modifier =
-                Modifier
-                    .size(size)
-                    .clickable {
-                        uriHandler.openUri("https://github.com/frap129")
-                    },
-        )
+        IconButton(
+            onClick = {
+                uriHandler.openUri("https://github.com/frap129")
+            },
+        ) {
+            Icon(
+                imageVector = FontAwesomeIcons.Brands.Github,
+                contentDescription = "Github",
+                tint = Color.White,
+                modifier = Modifier.size(size),
+            )
+        }
+
         Spacer(modifier = Modifier.width(size))
 
-        Icon(
-            imageVector = FontAwesomeIcons.Regular.Envelope,
-            contentDescription = "Mail",
-            tint = Color.White,
-            modifier =
-                Modifier
-                    .size(size)
-                    .clickable {
-                        uriHandler.openUri("mailto:joe@maples.dev")
-                    },
-        )
+        IconButton(
+            onClick = {
+                uriHandler.openUri("mailto:joe@maples.dev")
+            },
+        ) {
+            Icon(
+                imageVector = FontAwesomeIcons.Regular.Envelope,
+                contentDescription = "Mail",
+                tint = Color.White,
+                modifier = Modifier.size(size),
+            )
+        }
     }
 }
 
