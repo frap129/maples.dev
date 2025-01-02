@@ -57,7 +57,7 @@ fun Background(content: @Composable () -> Unit) {
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Text(
-                    text = "© Joe Maples",
+                    text = "This page was made with Compose Multiplatform and Kotlin/Wasm! © Joe Maples",
                     style = MaterialTheme.typography.bodyMedium,
                     color = Color.White.copy(alpha = 0.6f),
                     modifier = Modifier.padding(bottom = 8.dp),
