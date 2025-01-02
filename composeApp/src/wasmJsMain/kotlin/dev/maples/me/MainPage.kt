@@ -2,6 +2,7 @@ package dev.maples.me
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -12,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -26,36 +28,39 @@ import maples_dev2.composeapp.generated.resources.me
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
-
 @Composable
 fun Background(content: @Composable () -> Unit) {
-    Box(modifier = Modifier
-        .fillMaxSize()
-        .background(color = Color.Black),
+    Box(
+        modifier =
+            Modifier
+                .fillMaxSize()
+                .background(color = Color.Black),
     ) {
         Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .gradientBackground(
-                    colors = listOf(
-                        Color(0x38ffa596),
-                        Color(0x3864e4ff)
+            modifier =
+                Modifier
+                    .fillMaxSize()
+                    .gradientBackground(
+                        colors =
+                            listOf(
+                                Color(0x38ffa596),
+                                Color(0x3864e4ff),
+                            ),
+                        angle = 60f,
                     ),
-                    angle = 60f,
-                ),
-            contentAlignment = Alignment.Center
+            contentAlignment = Alignment.Center,
         ) {
             content()
             Column(
                 modifier = Modifier.fillMaxSize(),
                 verticalArrangement = Arrangement.Bottom,
-                horizontalAlignment = Alignment.CenterHorizontally
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Text(
                     text = "© Joe Maples",
                     style = MaterialTheme.typography.bodyMedium,
                     color = Color.White.copy(alpha = 0.6f),
-                    modifier = Modifier.padding(bottom = 8.dp)
+                    modifier = Modifier.padding(bottom = 8.dp),
                 )
             }
         }
@@ -64,16 +69,23 @@ fun Background(content: @Composable () -> Unit) {
 
 @Composable
 fun LinksRow(size: Dp = 32.dp) {
+    val uriHandler = LocalUriHandler.current
+
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.Center,
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         Icon(
             imageVector = FontAwesomeIcons.Brands.Linkedin,
             contentDescription = "LinkedIn",
             tint = Color.White,
-            modifier = Modifier.size(size)
+            modifier =
+                Modifier
+                    .size(size)
+                    .clickable {
+                        uriHandler.openUri("https://www.linkedin.com/in/joseph-maples-253250170/")
+                    },
         )
 
         Spacer(modifier = Modifier.width(size))
@@ -82,8 +94,12 @@ fun LinksRow(size: Dp = 32.dp) {
             imageVector = FontAwesomeIcons.Brands.Github,
             contentDescription = "Github",
             tint = Color.White,
-            modifier = Modifier.size(size)
-
+            modifier =
+                Modifier
+                    .size(size)
+                    .clickable {
+                        uriHandler.openUri("https://github.com/frap129")
+                    },
         )
         Spacer(modifier = Modifier.width(size))
 
@@ -91,7 +107,12 @@ fun LinksRow(size: Dp = 32.dp) {
             imageVector = FontAwesomeIcons.Regular.Envelope,
             contentDescription = "Mail",
             tint = Color.White,
-            modifier = Modifier.size(size)
+            modifier =
+                Modifier
+                    .size(size)
+                    .clickable {
+                        uriHandler.openUri("mailto:joe@maples.dev")
+                    },
         )
     }
 }
@@ -99,34 +120,37 @@ fun LinksRow(size: Dp = 32.dp) {
 @Composable
 fun ProfileCard() {
     Card(
-        modifier = Modifier
-            .width(500.dp)
-            .height(700.dp),
+        modifier =
+            Modifier
+                .width(500.dp)
+                .height(700.dp),
         shape = RoundedCornerShape(16.dp),
-        elevation = CardDefaults.cardElevation(
-            defaultElevation = 8.dp
-        )
+        elevation =
+            CardDefaults.cardElevation(
+                defaultElevation = 8.dp,
+            ),
     ) {
         Column(
-            modifier = Modifier
-                .padding(vertical = 32.dp, horizontal = 64.dp),
+            modifier =
+                Modifier
+                    .padding(vertical = 32.dp, horizontal = 64.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(32.dp)
+            verticalArrangement = Arrangement.spacedBy(32.dp),
         ) {
             Spacer(modifier = Modifier.width(32.dp))
             Image(
                 painter = painterResource(Res.drawable.me),
                 contentDescription = "Joe Maples",
-                modifier = Modifier
-                    .size(180.dp)
-                    .clip(CircleShape),
+                modifier =
+                    Modifier
+                        .size(180.dp)
+                        .clip(CircleShape),
                 contentScale = ContentScale.Crop,
-
-                )
+            )
             Text(
                 text = "Joe Maples",
                 style = MaterialTheme.typography.headlineLarge,
-                color = Color.White
+                color = Color.White,
             )
 
             Text(
@@ -152,7 +176,6 @@ fun ProfileCard() {
         }
     }
 }
-
 
 @Preview
 @Composable

@@ -9,7 +9,7 @@ fun WebPageTheme(content: @Composable () -> Unit) {
     val colorScheme = darkColorScheme()
 
     MaterialTheme(
-        colorScheme
+        colorScheme,
     ) {
         content()
     }
