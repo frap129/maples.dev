@@ -1,4 +1,4 @@
-package dev.maples.me
+package dev.maples.me.ui.theme
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme

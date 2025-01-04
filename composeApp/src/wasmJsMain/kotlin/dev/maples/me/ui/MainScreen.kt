@@ -1,4 +1,4 @@
-package dev.maples.me
+package dev.maples.me.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -22,10 +22,18 @@ import compose.icons.fontawesomeicons.Regular
 import compose.icons.fontawesomeicons.brands.Github
 import compose.icons.fontawesomeicons.brands.Linkedin
 import compose.icons.fontawesomeicons.regular.Envelope
+import dev.maples.me.utils.gradientBackground
 import maples_dev2.composeapp.generated.resources.Res
 import maples_dev2.composeapp.generated.resources.me
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
+
+@Composable
+fun MainScreen() {
+    Background {
+        ProfileCard()
+    }
+}
 
 @Composable
 fun Background(content: @Composable () -> Unit) {

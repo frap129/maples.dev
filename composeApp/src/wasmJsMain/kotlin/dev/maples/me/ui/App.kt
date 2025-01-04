@@ -1,12 +1,11 @@
-package dev.maples.me
+package dev.maples.me.ui
 
 import androidx.compose.runtime.Composable
+import dev.maples.me.ui.theme.WebPageTheme
 
 @Composable
 fun App() {
     WebPageTheme {
-        Background {
-            ProfileCard()
-        }
+        MainScreen()
     }
 }

@@ -1,4 +1,4 @@
-package dev.maples.me
+package dev.maples.me.utils
 
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
