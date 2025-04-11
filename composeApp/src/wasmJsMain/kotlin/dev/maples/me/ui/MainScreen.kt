@@ -166,15 +166,18 @@ class MainScreen : Screen {
                     style = MaterialTheme.typography.headlineLarge,
                     color = Color.White,
                 )
-
                 Text(
                     text = "Tinkerer, OSS Enthusiast, Coffee Snob,\nDeveloper",
                     textAlign = TextAlign.Center,
                     style = MaterialTheme.typography.bodyLarge,
                 )
-
                 Text(
-                    text = "Senior Software Engineer at Valtech Detroit\n(formerly called Tome)",
+                    text = "Software Protyper working on IVI at Ford Motor Company\n",
+                    textAlign = TextAlign.Center,
+                    style = MaterialTheme.typography.bodyLarge,
+                )
+                Text(
+                    text = "Former Senior Software Engineer at Valtech Detroit\n(formerly called Tome)",
                     textAlign = TextAlign.Center,
                     style = MaterialTheme.typography.bodyLarge,
                 )
